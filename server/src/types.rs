@@ -18,3 +18,9 @@ pub struct ErrorResponse {
     pub status: u16,
     pub message: &'static str,
 }
+
+#[derive(Serialize)]
+pub struct Question {
+    pub question: String,
+    pub answer: String,
+}

@@ -25,7 +25,7 @@ impl fmt::Display for Base {
     }
 }
 
-pub fn base_encoding_question() -> Result<(String, String), &'static str> {
+pub fn base_encoding() -> Result<(String, String), &'static str> {
     let mut rng = rand::thread_rng();
 
     // Choose two different bases
@@ -104,14 +104,4 @@ pub fn base_encoding_question() -> Result<(String, String), &'static str> {
         to_base, from_base, number_in_base
     );
     Ok((question, correct_answer))
-}
-
-fn main() {
-    match base_encoding_question() {
-        Ok((question, answer)) => {
-            println!("Question: {}", question);
-            println!("Answer: {}", answer);
-        }
-        Err(e) => println!("Error: {}", e),
-    }
 }

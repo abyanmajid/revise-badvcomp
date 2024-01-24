@@ -1,6 +1,8 @@
+pub mod cli;
 pub mod constants;
 pub mod elec1601;
 pub mod handler;
+pub mod logger;
 pub mod route;
 pub mod types;
 
@@ -8,7 +10,7 @@ use axum::http::StatusCode;
 use constants::UNITS;
 use types::{ErrorResponse, Unit};
 
-async fn find_unit(unit_name: &str) -> Result<&'static Unit, ErrorResponse> {
+pub async fn find_unit(unit_name: &str) -> Result<&'static Unit, ErrorResponse> {
     UNITS
         .iter()
         .find(|&u| u.unit == unit_name)
