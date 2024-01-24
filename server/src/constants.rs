@@ -1,4 +1,5 @@
 use crate::types::{Topic, Unit};
+use once_cell::sync::Lazy;
 
 pub const ASCII_ART: &str = r"
   ___         _           ___   _      _      ___                
@@ -8,14 +9,29 @@ pub const ASCII_ART: &str = r"
                                                            |_|   
 ";
 
-pub const PORT: u32 = 8000;
+pub const TOPICS_COUNT: usize = 2;
 
-pub const TOPICS_COUNT: usize = 1;
-
-pub static UNITS: [Unit; TOPICS_COUNT] = [Unit {
-    unit: "ELEC1601",
-    topics: [Topic {
-        id: 1,
-        topic: "Base encoding",
-    }],
-}];
+pub static UNITS: Lazy<[Unit; TOPICS_COUNT]> = Lazy::new(|| {
+    [
+        Unit {
+            unit: String::from("ELEC1601"),
+            topics: vec![
+                Topic {
+                    id: 1,
+                    topic: String::from("Base encoding"),
+                },
+                Topic {
+                    id: 2,
+                    topic: String::from("Fixed-point numbers"),
+                },
+            ],
+        },
+        Unit {
+            unit: String::from("MATH1061"),
+            topics: vec![Topic {
+                id: 1,
+                topic: String::from("To be added!"),
+            }],
+        },
+    ]
+});

@@ -682,6 +682,7 @@ dependencies = [
  "anyhow",
  "axum",
  "clap",
+ "once_cell",
  "rand",
  "serde",
  "serde_json",

@@ -1,22 +1,23 @@
-use super::types::Question;
+use serde_json::{json, Value};
+use tracing::trace;
 
 #[path = "01-base_encoding.rs"]
 pub mod topic_1;
 
-pub fn generate_problem(id: u32) {
-    // match id {
-    //     1 => match topic_1::base_encoding() {
-    //         Ok((question, answer)) => {
-    //             // Create a response object
-    //             let response = Question { question, answer };
-    //
-    //             // Serialize the response object to JSON
-    //             match serde_json::to_string(&response) {
-    //                 Ok(json) => println!("{}", json),
-    //                 Err(e) => eprintln!("Error serializing to JSON: {}", e),
-    //             }
-    //         }
-    //         Err(e) => eprintln!("Error: {}", e),
-    //     },
-    // }
+pub fn generate_problem(id: u32) -> Option<Value> {
+    trace!("Generating problem for id: {}", id);
+    match id {
+        1 => {
+            let (question, answer) = topic_1::base_encoding().unwrap();
+            trace!("Problem generated successfully.");
+            Some(json!({
+                "question": question,
+                "answer": answer
+            }))
+        }
+        _ => {
+            trace!("Unsupported id: {}", id);
+            None
+        }
+    }
 }
