@@ -1,3 +1,5 @@
+import { NavItem } from "./nav"
+
 export type SiteConfig = {
   name: string
   author: string
@@ -6,9 +8,11 @@ export type SiteConfig = {
   url: {
     base: string
     author: string
-  }
+  },
+  mainNav: NavItem[]
   links: {
     github: string
+    twitter: string
   }
   ogImage: string
 }
