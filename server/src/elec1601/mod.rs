@@ -1,23 +1,91 @@
+use super::randomize;
+use anyhow::{Error, Result};
+use maplit::hashmap;
 use serde_json::{json, Value};
+use std::collections::HashMap;
 use tracing::trace;
 
 #[path = "01-base_encoding.rs"]
 pub mod topic_1;
 
-pub fn generate_problem(id: u32) -> Option<Value> {
-    trace!("Generating problem for id: {}", id);
-    match id {
-        1 => {
-            let (question, answer) = topic_1::base_encoding().unwrap();
-            trace!("Problem generated successfully.");
-            Some(json!({
+#[path = "02-fixed_point_numbers.rs"]
+pub mod topic_2;
+
+type FuncType = fn() -> Result<(String, String), Error>;
+
+pub fn generate_problem(topic_id: u32, subtopic_id: u32) -> Option<Value> {
+    trace!(
+        "Entering generate_problem with topic_id: {}, subtopic_id: {}",
+        topic_id,
+        subtopic_id
+    );
+
+    if subtopic_id == 0 {
+        trace!("Generating RANDOM problem for topic id {}", topic_id);
+    } else {
+        trace!(
+            "Generating specific problem for topic id: {}, sub-topic id: {}",
+            topic_id,
+            subtopic_id
+        );
+    };
+
+    trace!("Creating topic_functions hashmap");
+    let topic_functions: HashMap<u32, Vec<FuncType>> = hashmap! {
+        1 => vec![topic_1::base_encoding as FuncType],
+        2 => vec![topic_2::fixed_to_dec as FuncType, topic_2::dec_to_fixed as FuncType],
+    };
+
+    trace!("Looking up functions for topic_id: {}", topic_id);
+    topic_functions.get(&topic_id).and_then(|functions| {
+        trace!(
+            "Found functions for topic_id: {}. Processing subtopic_id: {}",
+            topic_id,
+            subtopic_id
+        );
+        let result = match subtopic_id {
+            0 => {
+                trace!(
+                    "Randomizing selection of functions for topic_id: {}",
+                    topic_id
+                );
+                randomize(functions).ok()
+            }
+            subtopic => {
+                trace!(
+                    "Selecting specific function for topic_id: {}, subtopic_id: {}",
+                    topic_id,
+                    subtopic
+                );
+                functions
+                    .get(subtopic as usize - 1)
+                    .map(|&func| {
+                        trace!(
+                            "Executing function for topic_id: {}, subtopic_id: {}",
+                            topic_id,
+                            subtopic
+                        );
+                        func()
+                    })
+                    .and_then(Result::ok)
+            }
+        };
+
+        trace!(
+            "Processing result for topic_id: {}, subtopic_id: {}",
+            topic_id,
+            subtopic_id
+        );
+        result.map(|(question, answer)| {
+            trace!(
+                "Returning result for topic_id: {}, subtopic_id: {}",
+                topic_id,
+                subtopic_id
+            );
+            json!({
                 "question": question,
                 "answer": answer
-            }))
-        }
-        _ => {
-            trace!("Unsupported id: {}", id);
-            None
-        }
-    }
+            })
+        })
+    })
 }

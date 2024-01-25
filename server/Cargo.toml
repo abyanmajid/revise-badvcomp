@@ -16,3 +16,4 @@ tracing-subscriber = { version = "0.3.16", features = ["json", "ansi"], default-
 anyhow = "1.0.79"
 rand = "0.8.5"
 once_cell = "1.19.0"
+maplit = "1.0.2"
