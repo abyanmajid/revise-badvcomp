@@ -10,7 +10,7 @@ Install the `jq` package in order to format JSON data.
 ```
 sudo apt-get install jq
 ```
-To fetch available topics, run
+To fetch available units, run
 ```
 curl https://revise-badvcomp-bhfzgseo6q-uc.a.run.app | jq
 ```
