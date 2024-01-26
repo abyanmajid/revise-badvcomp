@@ -4,6 +4,8 @@
 
 Public API written in Rust for generating practice problems to help in revising for USYD's Bachelor of Advanced Computing Units.
 
+Live app at **[revise-badvcomp.vercel.app](https://revise-badvcomp.vercel.app)**
+
 ## Making `GET` requests
 
 Install the `jq` package in order to format JSON data.
