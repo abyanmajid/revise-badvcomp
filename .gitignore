@@ -36,6 +36,6 @@ yarn-error.log*
 next-env.d.ts
 
 # server
-server/target
-server/.env
-server/*.exe
+src/server/target
+src/server/.env
+src/server/*.exe
