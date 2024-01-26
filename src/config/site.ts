@@ -24,7 +24,14 @@ export const siteConfig: SiteConfig = {
   ],
   links: {
     github: "https://github.com/abyanmajid/revise-badvcomp",
-    twitter: "https://twitter.com/shadcn",
   },
   ogImage: `${env.NEXT_PUBLIC_APP_URL}/og.jpg`,
 }
+
+export const UNITS = [
+  {
+    code: "elec1601",
+    long: "Introduction to Computer Systems",
+    syllabus: "Semester 2, 2023"
+  },
+]

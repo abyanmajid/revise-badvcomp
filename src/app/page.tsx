@@ -3,7 +3,6 @@ import Link from "next/link"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
 import { ModeToggle } from "@/components/mode-toggle"
 import { GitHubLogoIcon } from "@radix-ui/react-icons"
 import { Separator } from "@/components/ui/separator"
@@ -20,12 +19,11 @@ export default function Home() {
         </p>
         <Separator className="max-w-[42rem]" />
         <p className="mb-2 max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-          Built and maintained by <Link href={siteConfig.url.author} className="text-black dark:text-white hover:text-red-600 dark:hover:text-red-600">{siteConfig.author}</Link>
+          Built by <Link href={siteConfig.url.author} className="text-black dark:text-white hover:text-red-600 dark:hover:text-red-600">{siteConfig.author}</Link>
         </p>
         <div className="flex gap-2">
           <Link
-            href={siteConfig.links.github}
-            target="_blank"
+            href="/units"
             className={cn(buttonVariants({ size: "default" }))}
           >
             Start Revising

@@ -28,6 +28,7 @@ pub async fn show_elec1601_topics() -> Result<impl IntoResponse, (StatusCode, Js
     match find_unit("ELEC1601").await {
         Ok(unit) => {
             debug!("ELEC1601 unit successfully found and retrieved");
+            println!("{:?}", unit);
             Ok((StatusCode::OK, Json(unit)))
         }
         Err(error) => {

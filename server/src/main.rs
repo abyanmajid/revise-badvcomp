@@ -1,8 +1,13 @@
 use revise_badvcomp::{cli, constants::ASCII_ART, logger, route::create_router};
 
 use anyhow::Result;
+use axum::http::{
+    header::{ACCEPT, AUTHORIZATION, CONTENT_TYPE},
+    HeaderValue, Method,
+};
 use clap::Parser;
 use cli::{CommandLines, SubCommands};
+use tower_http::cors::CorsLayer;
 use tracing::{debug, error, info, trace};
 
 async fn serve(listen: bool, require_logging: bool, args: CommandLines) -> Result<()> {
@@ -23,7 +28,13 @@ async fn serve(listen: bool, require_logging: bool, args: CommandLines) -> Resul
     let SubCommands::ServeCommand(serve_args) = args.subcommand;
     debug!("Parsed subcommand arguments: {:?}", serve_args);
 
-    let app = create_router();
+    let cors = CorsLayer::new()
+        .allow_origin("http://localhost:3000".parse::<HeaderValue>().unwrap())
+        .allow_methods([Method::GET, Method::POST, Method::PATCH, Method::DELETE])
+        .allow_credentials(true)
+        .allow_headers([AUTHORIZATION, ACCEPT, CONTENT_TYPE]);
+
+    let app = create_router().layer(cors);
     trace!("Router created with Axum.");
 
     if listen {

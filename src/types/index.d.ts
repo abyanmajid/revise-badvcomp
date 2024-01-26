@@ -12,7 +12,6 @@ export type SiteConfig = {
   mainNav: NavItem[]
   links: {
     github: string
-    twitter: string
   }
   ogImage: string
 }

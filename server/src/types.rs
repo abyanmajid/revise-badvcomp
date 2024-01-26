@@ -1,14 +1,22 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize)]
-pub struct Topic {
+#[derive(Debug, Serialize, Deserialize)]
+pub struct QuestionType {
     pub id: u32,
-    pub topic: String, // Changed from &'static str to String
+    pub qtype: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Topic {
+    pub id: u32,
+    pub topic: String,
+    pub question_types: Vec<QuestionType>,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Unit {
-    pub unit: String, // Changed from &'static str to String
+    pub unit: String,
+    pub syllabus: String,
     pub topics: Vec<Topic>,
 }
 
