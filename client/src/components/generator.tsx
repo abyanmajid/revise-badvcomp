@@ -44,7 +44,7 @@ export default function Generator({ api_endpoint, topics }: Props) {
 
   async function handleGenerate() {
     try {
-      const response = await fetch(`http://localhost:8000/elec1601/${topic[1]}/${questionType[1]}`);
+      const response = await fetch(`${api_endpoint}/${topic[1]}/${questionType[1]}`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
