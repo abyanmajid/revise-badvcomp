@@ -9,7 +9,7 @@ env:
 
 jobs:
   build_and_test:
-    name: Rust project - latest
+    name: Revise BAdvComp - latest
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -19,6 +19,10 @@ jobs:
           - nightly
     steps:
       - uses: actions/checkout@v3
+      - name: Use Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
       - name: Test Server
         working-directory: ./src/server
         run: |
