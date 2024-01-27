@@ -22,7 +22,7 @@ To fetch available topics, run
 curl https://revise-badvcomp-bhfzgseo6q-uc.a.run.app/<unit_code> | jq
 ```
 
-To generate a practice problem, run
+To fetch a practice problem, run
 ```
 curl https://revise-badvcomp-bhfzgseo6q-uc.a.run.app/elec1601/<topic_id>/<question_type_id> | jq
 ```
