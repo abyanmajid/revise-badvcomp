@@ -18,8 +18,6 @@ export default function AllUnitsPage() {
       <Separator className="max-w-[64rem]" />
       <div className="grid grid-cols-3">
         <Link href="/units/elec1601" className="mx-1"><Button variant="outline" className="w-full h-24 text-lg">ELEC1601</Button></Link>
-        <Link href="/units/data1001" className="mx-1"><Button variant="outline" className="w-full h-24 text-lg">DATA1001</Button></Link>
-        <Link href="/units/math1061" className="mx-1"><Button variant="outline" className="w-full h-24 text-lg">MATH1061</Button></Link>
       </div>
     </div>
   </main >

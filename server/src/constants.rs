@@ -36,6 +36,52 @@ pub static UNITS: Lazy<[Unit; TOPICS_COUNT]> = Lazy::new(|| {
                         },
                     ],
                 },
+                Topic {
+                    id: 3,
+                    topic: String::from("Memory size"),
+                    question_types: vec![
+                        QuestionType {
+                            id: 1,
+                            qtype: String::from("Calculate memory size"),
+                        },
+                        QuestionType {
+                            id: 2,
+                            qtype: String::from("Calculate cell size"),
+                        },
+                        QuestionType {
+                            id: 3,
+                            qtype: String::from("Calculate number of cells"),
+                        },
+                        QuestionType {
+                            id: 4,
+                            qtype: String::from("Calculate minimal address bits"),
+                        },
+                    ],
+                },
+                Topic {
+                    id: 4,
+                    topic: String::from("Registers"),
+                    question_types: vec![QuestionType {
+                        id: 1,
+                        qtype: String::from("Trace registers value based on clock"),
+                    }],
+                },
+                Topic {
+                    id: 5,
+                    topic: String::from("Stack"),
+                    question_types: vec![QuestionType {
+                        id: 1,
+                        qtype: String::from("Keeping track of push and pop operations"),
+                    }],
+                },
+                Topic {
+                    id: 6,
+                    topic: String::from("AVR Assembly"),
+                    question_types: vec![QuestionType {
+                        id: 1,
+                        qtype: String::from("Bitwise AND + Reading Opcode"),
+                    }],
+                },
             ],
         },
         Unit {

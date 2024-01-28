@@ -8,9 +8,16 @@ use tracing::trace;
 
 #[path = "01-base_encoding.rs"]
 pub mod topic_1;
-
 #[path = "02-fixed_point_numbers.rs"]
 pub mod topic_2;
+#[path = "03-memory_size.rs"]
+pub mod topic_3;
+#[path = "04-registers.rs"]
+pub mod topic_4;
+#[path = "05-stack.rs"]
+pub mod topic_5;
+#[path = "06-avr.rs"]
+pub mod topic_6;
 
 type FuncType = fn() -> Result<(String, String), Error>;
 
@@ -35,6 +42,14 @@ pub fn generate_problem(mut topic_id: u32, subtopic_id: u32) -> Option<Value> {
     let topic_functions: HashMap<u32, Vec<FuncType>> = hashmap! {
         1 => vec![topic_1::base_encoding as FuncType],
         2 => vec![topic_2::fixed_to_dec as FuncType, topic_2::dec_to_fixed as FuncType],
+        3 => vec![topic_3::total_size_question as FuncType,
+                topic_3::cell_size_question as FuncType,
+                topic_3::no_of_cells_question as FuncType,
+                topic_3::address_bits_question as FuncType
+            ],
+        4 => vec![topic_4::find_register_value as FuncType],
+        5 => vec![topic_5::track_stack_contents as FuncType],
+        6 => vec![topic_6::avr_assembly_andi_breq as FuncType]
     };
 
     if topic_id == 0 {

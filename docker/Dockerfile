@@ -5,7 +5,7 @@ FROM rust:latest as builder
 WORKDIR /usr/src/myapp
 
 # Copy the Rust project files from the src/server directory relative to the Dockerfile's location
-COPY ../src/server/ .
+COPY ../server/ .
 
 # Build the application
 RUN cargo build --release
