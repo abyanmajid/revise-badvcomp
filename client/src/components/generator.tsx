@@ -66,7 +66,7 @@ export default function Generator({ api_endpoint, topics }: Props) {
     </React.Fragment>
   ));
 
-  return <div className="mt-6 grid grid-cols-3 gap-2">
+  return <div className="items-start mt-6 grid grid-cols-3 gap-2">
     <div className="grid grid-cols-2 gap-2 mx-2">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
