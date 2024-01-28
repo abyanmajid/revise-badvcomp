@@ -26,11 +26,8 @@ pub fn find_register_value() -> Result<(String, String)> {
     let question = format!(
         "Given four groups of rising-edge sensitive registers with the following details,
 
-Regs A -----> Regs B
-  ^            |
-  |            |
-  |            v
-Regs D <----- Regs C
+Regs A -> Regs B -> Regs C -> Regs D
+then Regs D cycles back to A
 
 Current values:
 - Register Group A = {}

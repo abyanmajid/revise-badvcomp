@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { parseStringToArray } from "@/lib/utils"
 import { Topic } from "@/types/units";
+import React from 'react';
 
 interface Props {
   api_endpoint: string;
@@ -57,6 +58,13 @@ export default function Generator({ api_endpoint, topics }: Props) {
       console.error("Error fetching data: ", error);
     }
   }
+
+  const questionLines = question.split('\n').map((line, index) => (
+    <React.Fragment key={index}>
+      {line}
+      <br />
+    </React.Fragment>
+  ));
 
   return <div className="mt-6 grid grid-cols-3 gap-2">
     <div className="grid grid-cols-2 gap-2 mx-2">
@@ -117,7 +125,7 @@ export default function Generator({ api_endpoint, topics }: Props) {
         {questionGenerated ?
           <div>
             <p className="mb-2">
-              <span className="font-extrabold">Question:&nbsp;</span>{question}
+              <span className="font-extrabold">Question:&nbsp;</span>{questionLines}
             </p>
             {answerRevealed ? <p>
               <span className="font-extrabold">Answer:&nbsp;</span>{answer}
