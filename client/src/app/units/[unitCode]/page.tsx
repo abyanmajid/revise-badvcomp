@@ -26,8 +26,6 @@ export default async function AllUnitsPage({ params }: Params) {
   }
 
   const api_endpoint = `${process.env.SERVER_URL}/${unitCode}`;
-  const data = await fetchData(api_endpoint)
-  console.log(data);
   return <main className="flex mt-8 justify-center">
     <div className="container flex max-w-[64rem] flex-col gap-4 text-center">
       <Card>
@@ -47,7 +45,7 @@ export default async function AllUnitsPage({ params }: Params) {
         </CardHeader>
         <Separator />
         <CardContent>
-          <Generator api_endpoint={api_endpoint} topics={data.topics} />
+          <Generator api_endpoint={api_endpoint} topics={unit.topics} />
         </CardContent>
       </Card>
     </div>

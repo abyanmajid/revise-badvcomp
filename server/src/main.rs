@@ -31,7 +31,7 @@ async fn serve(listen: bool, require_logging: bool, args: CommandLines) -> Resul
     let cors = CorsLayer::new()
         .allow_origin("http://localhost:3000".parse::<HeaderValue>().unwrap())
         .allow_origin(
-            "https://revise-badvcomp.vercel.app"
+            "http://revise-badvcomp.vercel.app"
                 .parse::<HeaderValue>()
                 .unwrap(),
         )
