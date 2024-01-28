@@ -31,6 +31,6 @@ curl https://revise-badvcomp-bhfzgseo6q-uc.a.run.app/elec1601/<topic_id>/<questi
 
 - API server: ***Axum*** <sub>(Rust)</sub>
 - User interface: ***Next.js*** <sub>(TypeScript)</sub>
-- Tracing, server error handling: ***Clap*** <sub>(Rust)</sub>, ***Tracing*** <sub>(Rust)</sub>, ***Anyhow*** <sub>(Rust)</sub>
+- Server error handling: ***Clap*** <sub>(Rust)</sub>, ***Tracing*** <sub>(Rust)</sub>, ***Anyhow*** <sub>(Rust)</sub>
 - Containerization, CI/CD: ***Docker***, ***GitHub Actions***
 - Deployment: ***GCP Cloud Run***, ***Vercel***
