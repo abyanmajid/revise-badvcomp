@@ -6,27 +6,6 @@ Public API written in Tokio-Axum (Rust) with NextJS UI for generating practice p
 
 Live app at **[revise-badvcomp.vercel.app](https://revise-badvcomp.vercel.app)**
 
-## Making `GET` requests
-
-Install the `jq` package in order to format JSON data.
-```
-sudo apt-get install jq
-```
-To fetch available units, run
-```
-curl https://revise-badvcomp-bhfzgseo6q-uc.a.run.app | jq
-```
-
-To fetch available topics, run
-```
-curl https://revise-badvcomp-bhfzgseo6q-uc.a.run.app/<unit_code> | jq
-```
-
-To fetch a practice problem, run
-```
-curl https://revise-badvcomp-bhfzgseo6q-uc.a.run.app/elec1601/<topic_id>/<question_type_id> | jq
-```
-
 ## Contributing
 
 To contribute in ***Rust***, submit a pull request with your changes in `server/src/<unit_code>`.
