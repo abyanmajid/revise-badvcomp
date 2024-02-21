@@ -1,7 +1,7 @@
 import "@/styles/globals.css"
 import React from "react"
 
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleTagManager } from '@next/third-parties/google'
 import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 
@@ -88,7 +88,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           {children}
         </ThemeProvider>
       </body>
-      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID as string} />
+      <GoogleTagManager gtmId={process.env.GOOGLE_ANALYTICS_ID as string} />
     </html>
   )
 }
