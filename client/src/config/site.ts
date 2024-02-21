@@ -30,6 +30,33 @@ export const siteConfig: SiteConfig = {
 
 export const UNITS = [
   {
+    code: "math1061 / 1002",
+    long: "Mathematics 1A",
+    syllabus: "Semester 1, 2024",
+    topics: [
+      {
+        "id": 2,
+        "topic": "Complex numbers",
+        "question_types": [
+          {
+            "id": 1,
+            "qtype": "Addition with complex numbers"
+          },
+          {
+            "id": 2,
+            "qtype": "Subtraction with complex numbers"
+          }
+        ]
+      },
+    ]
+  },
+  {
+    code: "math1061 / 1021",
+    long: "Mathematics 1A",
+    syllabus: "Semester 1, 2024",
+    topics: []
+  },
+  {
     code: "elec1601",
     long: "Introduction to Computer Systems",
     syllabus: "Semester 2, 2023",
