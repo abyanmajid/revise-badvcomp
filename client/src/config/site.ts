@@ -54,7 +54,34 @@ export const UNITS = [
     code: "math1061-1021",
     long: "Mathematics 1A",
     syllabus: "Semester 1, 2024",
-    topics: []
+    topics: [
+      {
+        "id": 1,
+        "topic": "Complex numbers",
+        "question_types": [
+          {
+            "id": 1,
+            "qtype": "Identifying real and imaginary parts"
+          },
+          {
+            "id": 2,
+            "qtype": "Addition with complex numbers",
+          },
+          {
+            "id": 3,
+            "qtype": "Subtraction with complex numbers",
+          },
+          {
+            "id": 4,
+            "qtype": "Multiplication with complex numbers",
+          },
+          {
+            "id": 5,
+            "qtype": "Division with complex numbers",
+          }
+        ],
+      }
+    ]
   },
   {
     code: "elec1601",

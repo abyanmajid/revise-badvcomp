@@ -1,7 +1,6 @@
 import "@/styles/globals.css"
 import React from "react"
 
-import { GoogleTagManager } from '@next/third-parties/google'
 import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 
@@ -88,7 +87,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
           {children}
         </ThemeProvider>
       </body>
-      <GoogleTagManager gtmId={process.env.GOOGLE_ANALYTICS_ID as string} />
     </html>
   )
 }

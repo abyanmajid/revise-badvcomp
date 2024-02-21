@@ -20,7 +20,7 @@ interface Params {
 
 export default async function AllUnitsPage({ params }: Params) {
   let unitCode = params.unitCode;
-  const apiUnitCode = unitCode;
+  const api_endpoint = `${process.env.SERVER_URL}/${unitCode}`;
   const unit = UNITS.find(unit => unit.code === unitCode);
   if (unit === undefined) {
     notFound()
@@ -28,7 +28,6 @@ export default async function AllUnitsPage({ params }: Params) {
   unitCode = unitCode === "math1061-1021" ? "math1061 / 1021" : unitCode
   unitCode = unitCode === "math1061-1002" ? "math1061 / 1002" : unitCode
 
-  const api_endpoint = `${process.env.SERVER_URL}/${apiUnitCode}`;
   return <main className="flex mt-8 justify-center">
     <div className="container flex max-w-[64rem] flex-col gap-4 text-center">
       <Card>
