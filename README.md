@@ -27,10 +27,14 @@ To fetch a practice problem, run
 curl https://revise-badvcomp-bhfzgseo6q-uc.a.run.app/elec1601/<topic_id>/<question_type_id> | jq
 ```
 
-## Tech stack
+## Contributing
 
-- API server: ***Axum*** <sub>(Rust)</sub>
-- User interface: ***Next.js*** <sub>(TypeScript)</sub>
-- Server error handling: ***Clap*** <sub>(Rust)</sub>, ***Tracing*** <sub>(Rust)</sub>, ***Anyhow*** <sub>(Rust)</sub>
-- Containerization, CI/CD: ***Docker***, ***GitHub Actions***
-- Deployment: ***GCP Cloud Run***, ***Vercel***
+To contribute in ***Rust***, submit a pull request with your changes in `server/src/<unit_code>`.
+
+To contribute in ***other languages***, submit a pull request with a new file(s) in `contributions/` containing your generation logic. I will translate your code into Rust.
+
+***Accepted languages***: Rust, Python, Java, JavaScript/TypeScript, C, C#, C++, Go
+
+## License
+
+Revise BAdvComp is MIT-licensed.
