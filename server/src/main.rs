@@ -29,9 +29,9 @@ async fn serve(listen: bool, require_logging: bool, args: CommandLines) -> Resul
     debug!("Parsed subcommand arguments: {:?}", serve_args);
 
     let cors = CorsLayer::new()
-        .allow_origin("http://localhost:3000".parse::<HeaderValue>().unwrap())
+        // .allow_origin("http://localhost:3000".parse::<HeaderValue>().unwrap())
         .allow_origin(
-            "http://revise-badvcomp.vercel.app"
+            "https://revise-badvcomp.vercel.app"
                 .parse::<HeaderValue>()
                 .unwrap(),
         )
