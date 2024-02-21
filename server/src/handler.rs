@@ -1,6 +1,8 @@
 use super::{create_error_response, find_unit, map_units_to_summary};
 use crate::constants::UNITS;
 use crate::elec1601;
+use crate::math1061_1002;
+use crate::math1061_1021;
 use axum::{extract::Path, http::StatusCode, response::IntoResponse, Json};
 use serde_json::Value;
 use tracing::{debug, error};
@@ -64,6 +66,74 @@ pub async fn generate_elec1601(
                 topic_id, subtopic_id
             );
             Err(create_error_response(StatusCode::NOT_FOUND, error_message))
+        }
+    }
+}
+
+pub async fn show_math1002_topics() -> Result<impl IntoResponse, (StatusCode, Json<Value>)> {
+    debug!("Request received to show topics for MATH1061-1002");
+
+    match find_unit("MATH1061-1002").await {
+        Ok(unit) => {
+            debug!("MATH1061-1002 unit successfully found and retrieved");
+            println!("{:?}", unit);
+            Ok((StatusCode::OK, Json(unit)))
+        }
+        Err(error) => {
+            error!(
+                "Error occurred while finding MATH1061-1002 unit: {}",
+                error.message
+            );
+            Err(create_error_response(
+                StatusCode::from_u16(error.status).unwrap(),
+                String::from(error.message),
+            ))
+        }
+    }
+}
+
+pub async fn generate_math1002(
+    Path((topic_id, subtopic_id)): Path<(u32, u32)>,
+) -> Result<impl IntoResponse, (StatusCode, Json<Value>)> {
+    debug!("Handling request to generate problem for id: {}", topic_id);
+
+    match math1061_1002::generate_problem(topic_id, subtopic_id) {
+        Some(problem) => {
+            debug!("Successfully generated MATH1002 base encoding problem");
+            Ok((StatusCode::OK, Json(problem)))
+        }
+        None => {
+            debug!(
+                "Could not find topic with ID: {}, and sub-topic ID: {}",
+                topic_id, subtopic_id
+            );
+            let error_message = format!(
+                "Could not find topic with ID: {}, and sub-topic ID: {}",
+                topic_id, subtopic_id
+            );
+            Err(create_error_response(StatusCode::NOT_FOUND, error_message))
+        }
+    }
+}
+
+pub async fn show_math1021_topics() -> Result<impl IntoResponse, (StatusCode, Json<Value>)> {
+    debug!("Request received to show topics for MATH1061-1021");
+
+    match find_unit("MATH1061-1021").await {
+        Ok(unit) => {
+            debug!("MATH1061-1021 unit successfully found and retrieved");
+            println!("{:?}", unit);
+            Ok((StatusCode::OK, Json(unit)))
+        }
+        Err(error) => {
+            error!(
+                "Error occurred while finding MATH1061-1021 unit: {}",
+                error.message
+            );
+            Err(create_error_response(
+                StatusCode::from_u16(error.status).unwrap(),
+                String::from(error.message),
+            ))
         }
     }
 }

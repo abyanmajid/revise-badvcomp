@@ -9,7 +9,7 @@ pub const ASCII_ART: &str = r"
                                                            |_|   
 ";
 
-pub const TOPICS_COUNT: usize = 2;
+pub const TOPICS_COUNT: usize = 3;
 
 pub static UNITS: Lazy<[Unit; TOPICS_COUNT]> = Lazy::new(|| {
     [
@@ -85,7 +85,33 @@ pub static UNITS: Lazy<[Unit; TOPICS_COUNT]> = Lazy::new(|| {
             ],
         },
         Unit {
-            unit: String::from("MATH1061"),
+            unit: String::from("MATH1061-1002"),
+            syllabus: String::from("S1, 2024"),
+            topics: vec![Topic {
+                id: 1,
+                topic: String::from("Complex numbers"),
+                question_types: vec![
+                    QuestionType {
+                        id: 1,
+                        qtype: String::from("Addition with complex numbers"),
+                    },
+                    QuestionType {
+                        id: 2,
+                        qtype: String::from("Subtraction with complex numbers"),
+                    },
+                    QuestionType {
+                        id: 3,
+                        qtype: String::from("Multiplication with complex numbers"),
+                    },
+                    QuestionType {
+                        id: 4,
+                        qtype: String::from("Division with complex numbers"),
+                    },
+                ],
+            }],
+        },
+        Unit {
+            unit: String::from("MATH1061-1021"),
             syllabus: String::from("S1, 2024"),
             topics: vec![Topic {
                 id: 1,

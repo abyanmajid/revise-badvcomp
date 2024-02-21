@@ -30,7 +30,7 @@ export const siteConfig: SiteConfig = {
 
 export const UNITS = [
   {
-    code: "math1061 / 1002",
+    code: "math1061-1002",
     long: "Mathematics 1A",
     syllabus: "Semester 1, 2024",
     topics: [
@@ -51,7 +51,7 @@ export const UNITS = [
     ]
   },
   {
-    code: "math1061 / 1021",
+    code: "math1061-1021",
     long: "Mathematics 1A",
     syllabus: "Semester 1, 2024",
     topics: []
