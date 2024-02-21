@@ -5,55 +5,62 @@
 #include <string.h>
 #include <time.h>
 
-char* generate_arithmetic_question(int* correct_answer);
+typedef struct {
+    char* question;
+    char* correct_answer;
+} QuestionAnswer;
+
+QuestionAnswer generate_arithmetic_question();
 
 int main() {
     srand(time(NULL));
 
-    int answer;
-    char* question = generate_arithmetic_question(&answer);
+    QuestionAnswer qa = generate_arithmetic_question();
 
-    if (question != NULL) {
-        printf("%s\n", question);
-        printf("Correct Answer: %d\n", answer);
-        free(question);
+    if (qa.question != NULL && qa.correct_answer != NULL) {
+        printf("%s\n", qa.question);
+        printf("Correct Answer: %s\n", qa.correct_answer);
+        free(qa.question);
+        free(qa.correct_answer);
     }
 
     return 0;
 }
 
-char* generate_arithmetic_question(int* correct_answer) {
+QuestionAnswer generate_arithmetic_question() {
     int num1 = rand() % 100 + 1;
     int num2 = rand() % 100 + 1;
     char operations[] = {'+', '-', '*', '/'};
     int opIndex = rand() % 4;
+    int correct_answer_numeric;
   
     switch (operations[opIndex]) {
         case '+':
-            *correct_answer = num1 + num2;
+            correct_answer_numeric = num1 + num2;
             break;
         case '-':
-            *correct_answer = num1 - num2;
+            correct_answer_numeric = num1 - num2;
             break;
         case '*':
-            *correct_answer = num1 * num2;
+            correct_answer_numeric = num1 * num2;
             break;
         case '/':
             while (num2 == 0) {
                 num2 = rand() % 100 + 1;
             }
-            *correct_answer = num1 / num2;
+            correct_answer_numeric = num1 / num2;
             break;
     }
 
     char* question = (char*)malloc(50 * sizeof(char));
-    if (question == NULL) {
+    char* correct_answer = (char*)malloc(20 * sizeof(char));
+
+    if (question == NULL || correct_answer == NULL) {
         printf("Memory allocation failed\n");
-        return NULL;
+        if (question) free(question);
+        if (correct_answer) free(correct_answer);
+        return (QuestionAnswer){NULL, NULL};
     }
 
-    // Format the question string
-    snprintf(question, 50, "What is %d %c %d?", num1, operations[opIndex], num2);
-
-    return question;
+    return (QuestionAnswer){question, correct_answer};
 }
