@@ -35,6 +35,16 @@ To contribute in ***other languages***, submit a pull request with a new file(s)
 
 ***Accepted languages***: Rust, Python, Java, JavaScript/TypeScript, C, C#, C++, Go
 
+### Code structure
+
+Please name your file in the format `<unit_code>-<file_name>`, and your generation functions must return a `(question: string, correct_answer: string)` tuple.
+```
+function generate_problem -> (string, string)
+  // generation logic
+
+  return (question, correct_answer)
+```
+
 ## License
 
 Revise BAdvComp is MIT-licensed.
