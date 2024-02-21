@@ -93,18 +93,22 @@ pub static UNITS: Lazy<[Unit; TOPICS_COUNT]> = Lazy::new(|| {
                 question_types: vec![
                     QuestionType {
                         id: 1,
-                        qtype: String::from("Addition with complex numbers"),
+                        qtype: String::from("Identifying real and imaginary parts"),
                     },
                     QuestionType {
                         id: 2,
-                        qtype: String::from("Subtraction with complex numbers"),
+                        qtype: String::from("Addition with complex numbers"),
                     },
                     QuestionType {
                         id: 3,
-                        qtype: String::from("Multiplication with complex numbers"),
+                        qtype: String::from("Subtraction with complex numbers"),
                     },
                     QuestionType {
                         id: 4,
+                        qtype: String::from("Multiplication with complex numbers"),
+                    },
+                    QuestionType {
+                        id: 5,
                         qtype: String::from("Division with complex numbers"),
                     },
                 ],
