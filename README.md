@@ -45,6 +45,8 @@ function generate_problem -> (string, string)
   return (question, correct_answer)
 ```
 
+See `contributions/unit0000-example.c` for example.
+
 ## License
 
 Revise BAdvComp is MIT-licensed.
