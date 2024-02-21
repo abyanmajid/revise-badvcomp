@@ -40,27 +40,6 @@ export const UNITS = [
         "question_types": [
           {
             "id": 1,
-            "qtype": "Addition with complex numbers"
-          },
-          {
-            "id": 2,
-            "qtype": "Subtraction with complex numbers"
-          }
-        ]
-      },
-    ]
-  },
-  {
-    code: "math1061-1021",
-    long: "Mathematics 1A",
-    syllabus: "Semester 1, 2024",
-    topics: [
-      {
-        "id": 1,
-        "topic": "Complex numbers",
-        "question_types": [
-          {
-            "id": 1,
             "qtype": "Identifying real and imaginary parts"
           },
           {
@@ -79,7 +58,19 @@ export const UNITS = [
             "id": 5,
             "qtype": "Division with complex numbers",
           }
-        ],
+        ]
+      },
+    ]
+  },
+  {
+    code: "math1061-1021",
+    long: "Mathematics 1A",
+    syllabus: "Semester 1, 2024",
+    topics: [
+      {
+        "id": 1,
+        "topic": "Complex numbers",
+        "question_types": [],
       }
     ]
   },
