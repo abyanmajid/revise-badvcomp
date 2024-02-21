@@ -2,7 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abyanmajid/revise-badvcomp/blob/main/LICENSE) ![ci-badge](https://github.com/abyanmajid/revise-badvcomp/actions/workflows/ci.yml/badge.svg) ![Rust](https://img.shields.io/badge/Axum-red.svg?style=flat&logo=rust&logoColor=white) ![Next JS](https://img.shields.io/badge/Next-black?style=flat&logo=next.js&logoColor=white)
 
-Public API written in Tokio-Axum (Rust) with NextJS UI for generating practice problems with random numbers to help in revising for USYD's Bachelor of Advanced Computing Units.
+Public REST API written in Tokio-Axum (Rust) with NextJS user interface for generating practice problems based on randomness in hopes to help in revising for USYD's Bachelor of Advanced Computing units.
 
 Live app at **[revise-badvcomp.vercel.app](https://revise-badvcomp.vercel.app)**
 
