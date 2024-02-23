@@ -85,3 +85,73 @@ pub fn divide_complex() -> Result<(String, String)> {
     let answer = format_complex(result);
     Ok((question, answer))
 }
+
+fn generate_random_complex_radians() -> Complex<f64> {
+    let mut rng = rand::thread_rng();
+    let real_part_factor: f64 = rng.gen_range(-4..=4) as f64;
+    let imag_part_factor: f64 = rng.gen_range(-4..=4) as f64;
+
+    // Multiply by pi/2 to get the actual values
+    let real_part = real_part_factor * std::f64::consts::FRAC_PI_2;
+    let imaginary_part = imag_part_factor * std::f64::consts::FRAC_PI_2;
+
+    Complex::new(real_part, imaginary_part)
+}
+
+pub fn modulus_and_principal_argument() -> Result<(String, String)> {
+    // Use the function to generate a random complex number with angles in terms of pi
+    let c = generate_random_complex_radians();
+
+    // Calculate the modulus
+    let modulus = c.norm();
+
+    // Calculate the argument, ensuring it's in terms of pi
+    let argument = c.arg();
+
+    // Format the modulus using your format_double function
+    let formatted_modulus = format_double(modulus);
+
+    // Since the argument is already a multiple of pi/2, we can represent it as a fraction of pi
+    let mut argument_in_terms_of_pi = argument / std::f64::consts::PI;
+
+    // Normalize the argument to be within the range [-π, π]
+    argument_in_terms_of_pi = if argument_in_terms_of_pi > 1.0 {
+        argument_in_terms_of_pi % 2.0 - 2.0
+    } else if argument_in_terms_of_pi < -1.0 {
+        argument_in_terms_of_pi % 2.0 + 2.0
+    } else {
+        argument_in_terms_of_pi
+    };
+
+    // Generate the formatted argument
+    let formatted_argument = match argument_in_terms_of_pi {
+        0.0 => "0".to_string(),
+        1.0 => "π".to_string(),
+        -1.0 => "-π".to_string(),
+        _ => {
+            // For other cases, express the angle as a fraction of π
+            let numerator = (argument_in_terms_of_pi * 2.0).round() as i64;
+            let denominator = 2;
+            // Handle cases where the numerator is 1 or -1
+            if numerator.abs() == 1 {
+                format!("{}π", if numerator == -1 { "-" } else { "" })
+            } else {
+                format!("{}π/{}", numerator, denominator)
+            }
+        }
+    };
+
+    // Generate the question using your format_complex function to display the complex number
+    let question = format!(
+        "Given the complex number {}, calculate its modulus and principal argument (in radians).",
+        format_complex(c)
+    );
+
+    // Generate the answer
+    let answer = format!(
+        "The modulus is {}, and the principal argument is {} radians.",
+        formatted_modulus, formatted_argument
+    );
+
+    Ok((question, answer))
+}

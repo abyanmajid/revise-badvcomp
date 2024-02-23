@@ -111,6 +111,10 @@ pub static UNITS: Lazy<[Unit; TOPICS_COUNT]> = Lazy::new(|| {
                         id: 5,
                         qtype: String::from("Division with complex numbers"),
                     },
+                    QuestionType {
+                        id: 6,
+                        qtype: String::from("Calculate modulus and principal argument"),
+                    },
                 ],
             }],
         },
