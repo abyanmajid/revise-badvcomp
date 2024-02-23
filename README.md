@@ -4,7 +4,7 @@
 
 Public REST API written in Tokio-Axum (Rust) with NextJS user interface for generating practice problems based on randomness in hopes to help in revising for USYD's Bachelor of Advanced Computing units.
 
-Live app at **[revise-badvcomp.vercel.app](https://revise-badvcomp.vercel.app)**
+🚀 Live app at **[revise-badvcomp.vercel.app](https://revise-badvcomp.vercel.app)** 🚀
 
 ## Contributing
 
