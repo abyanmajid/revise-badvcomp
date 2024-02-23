@@ -252,3 +252,40 @@ pub fn polar_to_cartesian() -> Result<(String, String)> {
 
     Ok((question, answer))
 }
+
+pub fn calculate_power_of_complex() -> Result<(String, String)> {
+    let mut rng = rand::thread_rng();
+    // Generate a random complex number with integer parts for simplicity
+    let real_part: i32 = rng.gen_range(-10..=10);
+    let imag_part: i32 = rng.gen_range(-10..=10);
+    let complex_number = Complex::new(real_part as f64, imag_part as f64);
+
+    // Randomly choose a power between 2 and 8
+    let power: i32 = rng.gen_range(2..=8);
+
+    // Calculate the power of the complex number
+    let result = complex_number.powi(power);
+
+    // Function to format numbers without unnecessary trailing zeros
+    fn format_number(n: f64) -> String {
+        if n.fract() == 0.0 {
+            format!("{:.0}", n)
+        } else {
+            format!("{:.2}", n).trim_end_matches('0').to_string()
+        }
+    }
+
+    // Format the complex number and the result without trailing zeros
+    let complex_str = format!("{} + {}i", real_part, imag_part);
+    let result_str = format!(
+        "{} + {}i",
+        format_number(result.re),
+        format_number(result.im)
+    );
+
+    // Generate the question and answer
+    let question = format!("Calculate ({})^{} in Cartesian form.", complex_str, power);
+    let answer = format!("The result is {}", result_str);
+
+    Ok((question, answer))
+}

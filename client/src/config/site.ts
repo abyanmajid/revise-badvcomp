@@ -57,6 +57,22 @@ export const UNITS = [
           {
             "id": 5,
             "qtype": "Division with complex numbers",
+          },
+          {
+            "id": 6,
+            "qtype": "Calculate modulus and principal argument"
+          },
+          {
+            "id": 7,
+            "qtype": "Cartesian form to polar forms"
+          },
+          {
+            "id": 8,
+            "qtype": "Polar forms to cartesian form"
+          },
+          {
+            "id": 9,
+            "qtype": "Power of a complex number"
           }
         ]
       },

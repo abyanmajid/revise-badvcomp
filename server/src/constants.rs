@@ -115,6 +115,18 @@ pub static UNITS: Lazy<[Unit; TOPICS_COUNT]> = Lazy::new(|| {
                         id: 6,
                         qtype: String::from("Calculate modulus and principal argument"),
                     },
+                    QuestionType {
+                        id: 7,
+                        qtype: String::from("Cartesian form to polar forms"),
+                    },
+                    QuestionType {
+                        id: 8,
+                        qtype: String::from("Polar forms to cartesian form"),
+                    },
+                    QuestionType {
+                        id: 9,
+                        qtype: String::from("Power of a complex number"),
+                    },
                 ],
             }],
         },
