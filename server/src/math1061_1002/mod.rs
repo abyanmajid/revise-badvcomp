@@ -37,6 +37,8 @@ pub fn generate_problem(mut topic_id: u32, subtopic_id: u32) -> Option<Value> {
             topic_1::multiply_complex as FuncType,
             topic_1::divide_complex as FuncType,
             topic_1::modulus_and_principal_argument as FuncType,
+            topic_1::cartesian_to_polar_and_exponential as FuncType,
+            topic_1::polar_to_cartesian as FuncType,
         ],
     };
 
